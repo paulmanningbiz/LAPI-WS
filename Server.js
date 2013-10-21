@@ -1,6 +1,6 @@
 //*******************************************************************************
 // Name:		Server.js
-// Desc:		Provide Components for each Landing Page Content API for Magnolia
+// Desc:		Provide Components for Landing Page Content used by Magnolia
 // Author:	    Paul Manning
 // Date:		23.05.2013
 //*******************************************************************************
@@ -26,30 +26,21 @@ app.configure
  
 console.log('Getting Page');
 
-app.get		('/Page', 						    Page.findAllPages);
-app.get		('/Page/:AlphaKey', 				Page.findPageAlphaKey);
-app.get		('/Page/:AlphaKey/:Code',		    Page.findPageCode);
-app.post	('/Page/',						    Page.addPage);
-app.put		('/Page/:AlphaKey', 				Page.updatePage);
-app.delete	('/Page/:AlphaKey', 				Page.deletePage); 
+app.get		('/Page', 						    Page.findPage);
+app.get		('/Page/:AlphaKey', 				Page.findAlphaKey);
+app.get		('/Page/:AlphaKey/:Code',		    Page.findCategory);
 
 console.log('Getting WTG');
 
-app.get		('/WTG', 							WTG.findAllWTG);
-app.get		('/WTG/:AlphaKey', 					WTG.findWTGAlphaKey);
-app.get		('/WTG/:AlphaKey/:Category',   		WTG.findWTGCategory);
-app.post	('/WTG', 							WTG.addWTG);
-app.put		('/WTG/:AlphaKey', 					WTG.updateWTG);
-app.delete	('/WTG/:AlphaKey',					WTG.deleteWTG);
+app.get		('/WTG', 							WTG.findWTG);
+app.get		('/WTG/:AlphaKey', 					WTG.findAlphaKey);
+app.get		('/WTG/:AlphaKey/:Code',   		    WTG.findCategory);
 
 console.log('Getting Horizontal Navigation');
 
-app.get		('/HN', 							HN.findAllHN);
-app.get		('/HN/:AlphaKey', 					HN.findHNAlphaKey);
-app.get		('/HN/:AlphaKey/:Category', 		HN.findHNCategory);
-app.post	('/HN', 							HN.addHN);
-app.put		('/HN/:AlphaKey', 					HN.updateHN);
-app.delete	('/HN/:Alphakey', 					HN.deleteHN);
+app.get		('/HN', 							HN.findHN);
+app.get		('/HN/:AlphaKey', 					HN.findAlphaKey);
+app.get		('/HN/:AlphaKey/:Code', 		    HN.findCategory);
 
 app.listen(config.server.Port);
 console.log('Listening on port ' + config.server.Port);
